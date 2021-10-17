@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="ad-area">
+        <nav class="nav-grids">
+            <div class="grid"></div>
+            <div class="grid"></div>
+        </nav>
+    </div>
+    <div class="authentication-area">
+        <section class="display" *ngIf="currentGrid === 0; else signup_grid">
+            <app-login></app-login>
+        </section>
+
+        <ng-template #signup_grid>
+            <section class="display">
+                Oky
+            </section>
+        </ng-template>
+    </div>
+</div>
