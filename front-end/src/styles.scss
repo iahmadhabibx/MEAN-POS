@@ -2,24 +2,86 @@ $base-color: #273c75;
 $white-hue: #ffffff00;
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-html,body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 100%;
+  overflow: hidden;
+}
+
+.font-varela {
+  font-family: 'Varela Round', sans-serif;
+}
+
+.font-comfortaa {
+  font-family: 'Comfortaa', cursive;
+}
+
+.font-play {
+  font-family: 'Play', sans-serif;
 }
 
 .h-100 {
-    height: 100%;
+  height: 100%;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .h-w-100 {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
+}
+.pos-relative {
+    position: relative;
+}
+.pos-absolute {
+    position: absolute;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.flex {
+    display: flex;
+}
+.i-flex {
+    display: inline-flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-column {
+    flex-direction: column;
+}
+.align-center {
+    align-items: center;
+}
+.justify-center {
+    justify-content: center;
+}
+.space-between {
+    justify-content: space-between;
+}
+.space-around {
+    justify-content: space-around;
+}
+.space-evenly {
+    justify-content: space-evenly;
+}
+
+
+.btn {
+    min-width: 100px;
+    padding: 7px 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s linear;
 }

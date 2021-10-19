@@ -1,12 +1,18 @@
-<div class="content">
-    <div class="ad-area">
-        <nav class="nav-grids">
-            <div class="grid"></div>
-            <div class="grid"></div>
+<div class="content flex">
+    <div class="ad-area i-flex space-between flex-column">
+
+        <div class="nav-head w-100 i-flex align-center flex-column">
+            <div class="title">point of sale</div>
+            <div class="divider"></div>
+        </div>
+
+        <nav class="nav-grids i-flex flex-row justify-center">
+            <div class="grid cursor-pointer"></div>
+            <div class="grid cursor-pointer"></div>
         </nav>
     </div>
     <div class="authentication-area">
-        <section class="display" *ngIf="currentGrid === 0; else signup_grid">
+        <section class="display h-100" *ngIf="currentGrid === 0; else signup_grid">
             <app-login></app-login>
         </section>
 

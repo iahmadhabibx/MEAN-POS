@@ -4,6 +4,40 @@
     width: 60%;
     background: linear-gradient(#273c75, #273c75), linear-gradient(#FFFFFF00 60%, #273c75);
     background-blend-mode: multiply;
+    padding: 40px 0;
+
+    .nav-head {
+      gap: 20px;
+
+      .title {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 24px;
+        color: #fff;
+      }
+
+      .divider {
+        width: 70%;
+        height: 2px;
+        background-color: #fff;
+      }
+    }
+    .nav-grids{
+      gap: 20px;
+
+      .grid {
+        width: 40px;
+        height: 5px;
+        border-radius: 6px;
+        background-color: #fff;
+        transition: all 0.2s linear;
+
+        &:hover {
+          filter: brightness(0.5);
+        }
+      }
+    }
   }
 
   .authentication-area {
