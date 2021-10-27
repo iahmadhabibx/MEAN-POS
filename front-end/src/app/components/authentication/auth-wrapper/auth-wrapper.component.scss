@@ -6,6 +6,10 @@
     background-blend-mode: multiply;
     padding: 40px 0;
 
+    @media(max-width: 899px) {
+      width: 40%;
+    }
+
     .nav-head {
       gap: 20px;
 
@@ -23,7 +27,8 @@
         background-color: #fff;
       }
     }
-    .nav-grids{
+
+    .nav-grids {
       gap: 20px;
 
       .grid {
@@ -33,7 +38,8 @@
         background-color: #fff;
         transition: all 0.2s linear;
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
           filter: brightness(0.5);
         }
       }
@@ -43,5 +49,9 @@
   .authentication-area {
     width: 40%;
     height: 100vh;
+
+    @media(max-width: 899px) {
+      width: 60%;
+    }
   }
 }

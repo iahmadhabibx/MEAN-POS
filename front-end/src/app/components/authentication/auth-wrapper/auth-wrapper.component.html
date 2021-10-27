@@ -7,8 +7,8 @@
         </div>
 
         <nav class="nav-grids i-flex flex-row justify-center">
-            <div class="grid cursor-pointer" [ngClass]="{'active': currentGrid === 0}"></div>
-            <div class="grid cursor-pointer" [ngClass]="{'active': currentGrid === 1}"></div>
+            <div class="grid cursor-pointer" (click)="currentGrid = 0" [ngClass]="{'active': currentGrid === 0}"></div>
+            <div class="grid cursor-pointer" (click)="currentGrid = 1" [ngClass]="{'active': currentGrid === 1}"></div>
         </nav>
     </div>
     <div class="authentication-area">
@@ -17,8 +17,8 @@
         </section>
 
         <ng-template #signup_grid>
-            <section class="display">
-                Oky
+            <section class="display h-100">
+                <app-signup></app-signup>
             </section>
         </ng-template>
     </div>

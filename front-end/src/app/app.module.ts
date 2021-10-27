@@ -10,6 +10,7 @@ import { AuthGuard } from './security/auth.guard';
 import { AuthWrapperComponent } from './components/authentication/auth-wrapper/auth-wrapper.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthenticatedGuard } from './security/authenticated.guard';
+import { SignupComponent } from './components/authentication/signup/signup.component';
 
 const routes: Routes = [
   { path: "", component: AuthWrapperComponent, canActivate: [AuthGuard]},
@@ -21,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     AuthWrapperComponent,
-    DashboardComponent
+    DashboardComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
