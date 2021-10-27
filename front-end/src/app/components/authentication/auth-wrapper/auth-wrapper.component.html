@@ -2,13 +2,13 @@
     <div class="ad-area i-flex space-between flex-column">
 
         <div class="nav-head w-100 i-flex align-center flex-column">
-            <div class="title">point of sale</div>
+            <div class="title font-comfortaa">point of sale</div>
             <div class="divider"></div>
         </div>
 
         <nav class="nav-grids i-flex flex-row justify-center">
-            <div class="grid cursor-pointer"></div>
-            <div class="grid cursor-pointer"></div>
+            <div class="grid cursor-pointer" [ngClass]="{'active': currentGrid === 0}"></div>
+            <div class="grid cursor-pointer" [ngClass]="{'active': currentGrid === 1}"></div>
         </nav>
     </div>
     <div class="authentication-area">

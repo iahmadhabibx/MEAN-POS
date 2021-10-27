@@ -1,4 +1,33 @@
+.login-form-container {
+  position: relative;
+  z-index: -1;
+  left: 0;
+  animation: positioning 0.1s linear;
+}
+
+@keyframes positioning {
+  from {
+    left: -350px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.login-message {
+  top: 40px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #4d4d4d;
+}
+
 .login-form {
+  border: 4px solid #273c75;
+  padding: 50px;
+  border-radius: 4px;
+
   .forgot-link {
     font-size: 12px;
     text-align: end;
@@ -23,6 +52,7 @@
     border: 2px solid #40739e;
     left: 30px;
   }
+
   .btn-login:hover {
     background: #40739e;
     color: #fff;
