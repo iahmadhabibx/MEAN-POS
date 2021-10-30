@@ -1,6 +1,6 @@
 .login-form-container {
   position: relative;
-  z-index: -1;
+  z-index: 1;
   left: 0;
   animation: positioning 0.1s linear;
 }
@@ -52,7 +52,6 @@
     background: #fff;
     color: #4d4d4d;
     border: 2px solid #40739e;
-    left: 30px;
   }
 
   .btn-login:hover {

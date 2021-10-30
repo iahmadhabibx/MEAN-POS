@@ -1,5 +1,5 @@
 <div class="content flex">
-    <div class="ad-area i-flex space-between flex-column">
+    <div class="ad-area pos-relative i-flex space-between flex-column">
 
         <div class="nav-head w-100 i-flex align-center flex-column">
             <div class="title font-comfortaa">point of sale</div>
@@ -11,7 +11,7 @@
             <div class="grid cursor-pointer" (click)="currentGrid = 1" [ngClass]="{'active': currentGrid === 1}"></div>
         </nav>
     </div>
-    <div class="authentication-area">
+    <div class="authentication-area pos-relative">
         <section class="display h-100" *ngIf="currentGrid === 0; else signup_grid">
             <app-login></app-login>
         </section>
