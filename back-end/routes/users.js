@@ -4,6 +4,11 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 
+router.get("/loginUserToPOS", (req, res, next) => {
+    const { email, password } = req.body;
+    console.log(email, password);
+});
+
 const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
