@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/AuthService';
+import Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-login',
@@ -27,12 +28,14 @@ export class LoginComponent implements OnInit {
     if (this.signInForm.valid) {
       const convertedPW = btoa(this.signInForm.value.password);
       this.signInForm.value.password = convertedPW;
-      const user = await this.authService.authenticateUserCredentials(this.signInForm.value);
-      if (user)
-        console.log(user);
-      else
-        console.log('no ok',user);
-
+      this.authService.authenticateUserCredentials(this.signInForm.value).then(authentication => {
+        console.log(authentication);
+        let convertedToken = btoa(JSON.stringify(authentication));
+        localStorage.setItem("angularToken", convertedToken);
+        Notiflix.Notify.success('Welcome back');
+      }).catch(err => {
+        Notiflix.Notify.failure("Please enter correct credentials")
+      })
     }
   }
 
