@@ -11,6 +11,7 @@ import { AuthWrapperComponent } from './components/authentication/auth-wrapper/a
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthenticatedGuard } from './security/authenticated.guard';
 import { SignupComponent } from './components/authentication/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: "", component: AuthWrapperComponent, canActivate: [AuthGuard]},
@@ -29,7 +30,9 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [AuthGuard, AuthenticatedGuard],
   bootstrap: [AppComponent]
