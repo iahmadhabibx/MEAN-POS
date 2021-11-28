@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const { authenticateToken } = require("../Authentication");
 const { User } = require("../schemas/schemas");
 
 const { validateUsername } = require("../validators/user.validator");
@@ -14,8 +15,8 @@ router.get("/loginUserToPOS", async (req, res) => {
     const { username, password } = req.query;
     if (!validateUsername(username))
         res.status(400).send("Invalid username");
-
-    const USER = await User.find({ username, password });
+    const USER = await User.findOne({ username: req.query.username, password: req.query.password });
+    console.log({ username: req.query.username, password: req.query.password});
     if (!USER)
         res.status(404).send("User does not exist");
     else {
@@ -24,6 +25,12 @@ router.get("/loginUserToPOS", async (req, res) => {
         res.status(200).send({ accessToken: accessToken, refreshToken: refreshToken });
     }
 });
+
+router.get("/", authenticateToken, (req, res) => {
+    console.log(1);
+});
+
+/* TOKEN AUthentication */
 
 router.post('/token', async (req, res) => {
     const refreshToken = req.body.token;
@@ -53,22 +60,8 @@ const generateAccessToken = (user) => {
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
 };
 
-
 router.delete('/logout', (req, res) => {
     // DELETE TOKEN FROM DATABASE
 });
-
-const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-
-    if (!token) return res.sendStatus(401);
-
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        next();
-    })
-};
 
 module.exports = router;
