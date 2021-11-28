@@ -4,11 +4,11 @@
     <form class="login-form i-flex flex-column" [formGroup]="signInForm" (ngSubmit)="onAuthenticateUser()">
         <div class="field-holder">
             <label for="username" class="font-comfortaa">Username</label>
-            <input type="text" class="field font-comfortaa" placeholder="john.smith" formControlName="username" maxlength="150">
+            <input type="text" class="field font-comfortaa" placeholder="john.smith" formControlName="username" maxlength="150" [ngClass]="{'invalid-field':form.username.touched && form.username.errors}">
         </div>
         <div class="field-holder">
             <label for="password" class="font-comfortaa">Password</label>
-            <input type="password" class="field font-comfortaa" placeholder="********" formControlName="password">
+            <input type="password" class="field font-comfortaa" placeholder="********" formControlName="password" [ngClass]="{'invalid-field':form.password.touched && form.password.errors}">
         </div>
         <div class="forgot-link font-comfortaa">Forgot Password?</div>
 

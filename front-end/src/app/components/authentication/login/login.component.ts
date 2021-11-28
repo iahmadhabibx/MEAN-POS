@@ -19,11 +19,17 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  get form() {
+    return this.signInForm.controls;
+  }
+
   async onAuthenticateUser() {
     if (this.signInForm.valid) {
+      const convertedPW = btoa(this.signInForm.value.password);
+      this.signInForm.value.password = convertedPW;
       const user = await this.authService.authenticateUserCredentials(this.signInForm.value);
       if (user)
-        console.log('ok',user);
+        console.log(user);
       else
         console.log('no ok',user);
 
