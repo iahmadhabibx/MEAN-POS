@@ -3,14 +3,13 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("../Authentication");
 const { User } = require("../schemas/schemas");
+const { allowCorsToRoutes } = require("../Shared/corsHeader");
 
 const { validateUsername } = require("../validators/user.validator");
 const router = express.Router();
 
 router.get("/loginUserToPOS", async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
+    allowCorsToRoutes(res);
 
     const { username, password } = req.query;
     if (!validateUsername(username))
