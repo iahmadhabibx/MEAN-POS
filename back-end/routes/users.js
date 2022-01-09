@@ -2,27 +2,30 @@ require("dotenv").config();
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("../Authentication");
+const { accessControlSetter } = require("../common/corsSetter");
 const { User } = require("../schemas/schemas");
 
 const { validateUsername } = require("../validators/user.validator");
 const router = express.Router();
 
-router.get("/loginUserToPOS", async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization');
-
-    const { username, password } = req.query;
+router.post("/loginUserToPOS", async (req, res) => {
+    const { username, password } = req.body;
+    accessControlSetter(res);
     if (!validateUsername(username))
         res.status(400).send("Invalid username");
-    const USER = await User.findOne({ username: req.query.username, password: req.query.password });
-    console.log({ username: req.query.username, password: req.query.password});
-    if (!USER)
-        res.status(404).send("User does not exist");
+
+    const USER = await User.find({ username, password }).lean();
+    if (!USER[0])
+        res.status(404).send("Invalid credentials");
     else {
-        const accessToken = generateAccessToken({ username, password });
-        const refreshToken = jwt.sign({ username, password }, process.env.REFRESH_TOKEN_SECRET);
-        res.status(200).send({ accessToken: accessToken, refreshToken: refreshToken });
+        if (USER[0].username !== username || USER[0].password !== password)
+        res.status(400).send("Invalid credentials");
+        else {
+            console.log(USER[0].username, username);
+            const accessToken = generateAccessToken({ username, password });
+            const refreshToken = jwt.sign({ username, password }, process.env.REFRESH_TOKEN_SECRET);
+            res.status(200).send({ accessToken: accessToken, refreshToken: refreshToken });
+        }
     }
 });
 

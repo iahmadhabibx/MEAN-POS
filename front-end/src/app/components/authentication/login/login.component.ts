@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/AuthService';
 import Notiflix from 'notiflix';
+import { SHARED_DATA } from 'src/app/shared/sharedData';
+import { Router } from '@angular/router';
+import * as CrypotJS from "crypto-js";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,7 @@ import Notiflix from 'notiflix';
 export class LoginComponent implements OnInit {
   signInForm: FormGroup;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.signInForm = this.fb.group({
@@ -24,19 +27,33 @@ export class LoginComponent implements OnInit {
     return this.signInForm.controls;
   }
 
-  async onAuthenticateUser() {
+  onAuthenticateUser = () => {
     if (this.signInForm.valid) {
       const convertedPW = btoa(this.signInForm.value.password);
       this.signInForm.value.password = convertedPW;
+
       this.authService.authenticateUserCredentials(this.signInForm.value).then(authentication => {
-        console.log(authentication);
-        let convertedToken = btoa(JSON.stringify(authentication));
-        localStorage.setItem("angularToken", convertedToken);
-        Notiflix.Notify.success('Welcome back');
+        this.postAuthenticateUser(authentication);
       }).catch(err => {
-        Notiflix.Notify.failure("Please enter correct credentials")
+        Notiflix.Notify.failure("Please enter the correct credentials")
       })
     }
+  }
+
+  postAuthenticateUser = (authentication: any) => {
+    SHARED_DATA.authentication.isLogin = true;
+    const { username, password } = this.signInForm.value;
+    let convertedToken = btoa(JSON.stringify(authentication));
+console.log(username, password);
+
+    const ENCRYPTED_EMAIL = CrypotJS.AES.encrypt(username, SHARED_DATA.authentication.hash).toString();
+    const ENCRYPTED_PW = CrypotJS.AES.encrypt(password, SHARED_DATA.authentication.hash).toString();
+
+    localStorage.setItem("angularToken", convertedToken);
+    localStorage.setItem("group-properties-em", ENCRYPTED_EMAIL);
+    localStorage.setItem("group-data", ENCRYPTED_PW);
+    this.router.navigate(['/dashboard']);
+    Notiflix.Notify.success('Welcome back');
   }
 
 }
