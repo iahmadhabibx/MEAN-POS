@@ -39,6 +39,10 @@
     flex-direction: column;
     margin: 0 0 10px 0;
 
+    label {
+      margin: 0 0 5px 0;
+    }
+
     .field {
       height: 40px;
       width: 200px;
