@@ -25,6 +25,9 @@ body {
 .font-play {
   font-family: 'Play', sans-serif;
 }
+.invalid-field {
+  border: 2px solid rgb(242, 39, 39) !important;
+}
 
 .h-100 {
   height: 100%;
