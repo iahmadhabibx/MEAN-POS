@@ -1,5 +1,6 @@
-$base-color: #273c75;
-$white-hue: #ffffff00;
+:root {
+  --theme: #273c75;
+}
 
 * {
   box-sizing: border-box;
@@ -25,6 +26,7 @@ body {
 .font-play {
   font-family: 'Play', sans-serif;
 }
+
 .invalid-field {
   border: 2px solid rgb(242, 39, 39) !important;
 }
@@ -45,50 +47,62 @@ body {
 .text-center {
   text-align: center;
 }
+
 .pos-relative {
-    position: relative;
+  position: relative;
 }
+
 .pos-absolute {
-    position: absolute;
+  position: absolute;
 }
+
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .flex {
-    display: flex;
+  display: flex;
 }
+
 .i-flex {
-    display: inline-flex;
+  display: inline-flex;
 }
+
 .flex-row {
-    flex-direction: row;
+  flex-direction: row;
 }
+
 .flex-column {
-    flex-direction: column;
+  flex-direction: column;
 }
+
 .align-center {
-    align-items: center;
+  align-items: center;
 }
+
 .justify-center {
-    justify-content: center;
+  justify-content: center;
 }
+
 .space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
+
 .space-around {
-    justify-content: space-around;
+  justify-content: space-around;
 }
+
 .space-evenly {
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 
 .btn {
-    min-width: 100px;
-    padding: 7px 40px;
-    border-radius: 4px;
-    font-size: 18px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.2s linear;
+  min-width: 100px;
+  padding: 7px 40px;
+  border-radius: 4px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s linear;
 }

@@ -11,13 +11,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { AuthGuard } from './security/auth.guard';
 import { AuthWrapperComponent } from './components/authentication/auth-wrapper/auth-wrapper.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthenticatedGuard } from './security/authenticated.guard';
 import { SignupComponent } from './components/authentication/signup/signup.component';
 
 const routes: Routes = [
   { path: "", component: AuthWrapperComponent, canActivate: [AuthGuard]},
-  { path: "dashboard", component: DashboardComponent, canActivate: [AuthenticatedGuard] },
+  { path: "dashboard", loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule) },
 ]
 
 @NgModule({
@@ -25,9 +24,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     AuthWrapperComponent,
-    DashboardComponent,
     SignupComponent,
-    PageLoaderComponent
+    PageLoaderComponent,
   ],
   imports: [
     AppRoutingModule,
