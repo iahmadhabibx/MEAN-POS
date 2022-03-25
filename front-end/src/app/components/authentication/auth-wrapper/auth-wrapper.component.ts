@@ -12,5 +12,8 @@ export class AuthWrapperComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  tabSwitched(event: any) {
+    const { index } = event;
+    this.currentGrid = index;
+  }
 }

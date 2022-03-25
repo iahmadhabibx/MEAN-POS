@@ -1,18 +1,18 @@
 <div class="content flex">
-    <div class="ad-area pos-relative i-flex space-between flex-column">
-       
-    </div>
-    
     <div class="av-area flex flex-column space-between">
         <div class="nav-head w-100 i-flex align-center flex-column">
             <div class="title font-comfortaa">point of sale</div>
             <div class="divider"></div>
         </div>
 
-        <nav class="nav-grids-av i-flex flex-row justify-center">
-            <div class="grid cursor-pointer" (click)="currentGrid = 0" [ngClass]="{'active': currentGrid === 0}"></div>
-            <div class="grid cursor-pointer" (click)="currentGrid = 1" [ngClass]="{'active': currentGrid === 1}"></div>
-        </nav>
+        <!-- <nav class="nav-grids-av i-flex flex-row justify-center">
+            <div class="grid cursor-pointer"  [ngClass]="{'active': currentGrid === 0}"></div>
+            <div class="grid cursor-pointer"  [ngClass]="{'active': currentGrid === 1}"></div>
+        </nav> -->
+        <mat-tab-group (selectedTabChange)="tabSwitched($event)">
+            <mat-tab label="Log-in"></mat-tab>
+            <mat-tab label="Sign-up"></mat-tab>
+        </mat-tab-group>
     </div>
 
     <div class="div"></div>
