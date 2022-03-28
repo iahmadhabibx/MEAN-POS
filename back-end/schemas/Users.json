@@ -1,0 +1,14 @@
+[{
+    "_id": {
+      "$oid": "61534b5bcad5f89edc0df403"
+    },
+    "email": "ithemaddy@gmail.com",
+    "password": "UFc2NTQzMjE=",
+    "name": "Ahmad Habib",
+    "age": "1/1/1996",
+    "address": "I live in pakistan",
+    "contact": 301144130,
+    "totalOrders": [],
+    "isActive": false,
+    "__v": 0
+  }]

@@ -9,7 +9,7 @@
             <div class="grid cursor-pointer"  [ngClass]="{'active': currentGrid === 0}"></div>
             <div class="grid cursor-pointer"  [ngClass]="{'active': currentGrid === 1}"></div>
         </nav> -->
-        <mat-tab-group (selectedTabChange)="tabSwitched($event)">
+        <mat-tab-group (selectedTabChange)="tabSwitched($event)" class="align-center" [color]="'primary'">
             <mat-tab label="Log-in"></mat-tab>
             <mat-tab label="Sign-up"></mat-tab>
         </mat-tab-group>

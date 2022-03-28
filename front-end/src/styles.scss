@@ -1,5 +1,8 @@
-$base-color: #273c75;
-$white-hue: #ffffff00;
+:root {
+  --base-color: #273c75;
+  --white-hue: #ffffff00;
+  --text-color: #fff;
+}
 
 * {
   box-sizing: border-box;
