@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   { path: "", component: AuthWrapperComponent, canActivate: [AuthGuard]},
-  { path: "dashboard", component: AuthWrapperComponent, canActivate: [AuthenticatedGuard] },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthenticatedGuard] },
 ]
 
 @NgModule({

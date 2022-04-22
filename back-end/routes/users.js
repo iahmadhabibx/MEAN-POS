@@ -10,18 +10,18 @@ const router = express.Router();
 
 router.get("/loginUserToPOS", async (req, res) => {
     allowCorsToRoutes(res);
-
     const { username, password } = req.query;
     if (!validateUsername(username))
         res.status(400).send("Invalid username");
     const USER = await User.findOne({ username: req.query.username, password: req.query.password });
-    console.log({ username: req.query.username, password: req.query.password});
+    console.log({ username: req.query.username, password: req.query.password });
     if (!USER)
         res.status(404).send("User does not exist");
     else {
         const accessToken = generateAccessToken({ username, password });
         const refreshToken = jwt.sign({ username, password }, process.env.REFRESH_TOKEN_SECRET);
-        res.status(200).send({ accessToken: accessToken, refreshToken: refreshToken });
+        delete USER.password;
+        res.status(200).send({ accessToken: accessToken, refreshToken: refreshToken, user: USER });
     }
 });
 

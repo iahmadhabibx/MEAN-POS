@@ -7,12 +7,12 @@ import { SHARED_DATA } from '../shared/sharedData';
   providedIn: 'root'
 })
 export class AuthenticatedGuard implements CanActivate {
-  private Authentication = SHARED_DATA.authentication;
+  private Authentication = SHARED_DATA;
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.Authentication.isLogin;
+    return this.Authentication.authentication.isLogin;
   }
   
 }
