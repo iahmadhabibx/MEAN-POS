@@ -3,7 +3,7 @@
     z-index: 10;
     height: 100vh;
     width: 60%;
-    background: linear-gradient(#273c75, #273c75), linear-gradient(#FFFFFF00 60%, #273c75);
+    background: linear-gradient(var(--base-color), var(--base-color)), linear-gradient(var(--white-hue) 60%, var(--base-color));
     background-blend-mode: multiply;
     padding: 40px 0;
 
@@ -16,7 +16,7 @@
       div {
           .mat-tab-label-content {
             border: none;
-            color: #fff !important;
+            color: var(--base-color-white) !important;
             }
         }
      }
@@ -29,13 +29,13 @@
         letter-spacing: 1px;
         font-weight: 600;
         font-size: 24px;
-        color: #fff;
+        color: var(--base-color-white);
       }
 
       .divider {
         width: 70%;
         height: 2px;
-        background-color: #fff;
+        background-color: var(--base-color-white);
       }
     }
 
@@ -46,7 +46,7 @@
         width: 40px;
         height: 5px;
         border-radius: 6px;
-        background-color: #fff;
+        background-color: var(--base-color-white);
         transition: all 0.2s linear;
 
         &:hover,

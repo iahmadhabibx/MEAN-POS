@@ -1,0 +1,23 @@
+<header>
+    <section class="logo"></section>
+</header>
+<main>
+    <nav class="menu-icons">
+        <nav *ngFor="let menu of menuItems">
+            <div class="menu i-flex align-center justify-center flex-column w-100 cursor-pointer">
+                <svg>
+                    <use xlink:href="{menu.icon}"></use>
+                </svg>
+                {{menu.title}}
+            </div>
+        </nav>
+    </nav>
+</main>
+<footer>
+    <div class="menu i-flex align-center justify-center flex-column w-100 cursor-pointer">
+        <svg>
+            <use xlink:href="../../../assets/svg/icons.svg#logout"></use>
+        </svg>
+        Logout
+    </div>
+</footer>

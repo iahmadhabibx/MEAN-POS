@@ -32,7 +32,7 @@ const routes: Routes = [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    AuthWrapperComponent
+    AuthWrapperComponent,
   ],
   imports: [
     BrowserModule,
