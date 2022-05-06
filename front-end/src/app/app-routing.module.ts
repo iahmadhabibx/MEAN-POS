@@ -6,7 +6,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 const routes: Routes = [];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule, MatInputModule, MatTabsModule]
 })
 export class AppRoutingModule { }

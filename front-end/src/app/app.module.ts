@@ -5,27 +5,34 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/authentication/login/login.component';
-import { AuthGuard } from './security/auth.guard';
-import { AuthWrapperComponent } from './components/authentication/auth-wrapper/auth-wrapper.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AuthenticatedGuard } from './security/authenticated.guard';
-import { SignupComponent } from './components/authentication/signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { AuthWrapperComponent } from './authentication/auth-wrapper/auth-wrapper.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
-  { path: "", component: AuthWrapperComponent, canActivate: [AuthGuard]},
-  { path: "dashboard", component: DashboardComponent, canActivate: [AuthenticatedGuard] },
+  { 
+    path: "", 
+    children: [
+      {
+        path: "",
+        loadChildren:() => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+      },
+      {
+        path: "dashboard",
+        loadChildren:() => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
+    ]
+  },
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupComponent,
     LoginComponent,
-    AuthWrapperComponent,
-    DashboardComponent,
-    SignupComponent
+    AuthWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,6 @@ const routes: Routes = [
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthGuard, AuthenticatedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
