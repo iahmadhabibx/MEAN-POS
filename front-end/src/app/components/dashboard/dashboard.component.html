@@ -1,4 +1,7 @@
 <section class="sidebar h-100">
     <app-sidebar></app-sidebar>
 </section>
-hi
+
+<div *ngIf="modalMessage" class="confirm-box h-100 w-100">
+    <app-confirm [messageObject]="modalMessage"></app-confirm>
+</div>

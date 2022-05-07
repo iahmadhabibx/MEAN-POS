@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagePassingService } from 'src/app/services/messagePassing.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,16 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  menuItems = [
-    {id: 1, title: "Home", icon: "../../../assets/svg/icons.svg#home"},
-    {id: 2, title: "Menu", icon: "../../../assets/svg/icons.svg#menu"},
-    {id: 3, title: "History", icon: "../../../assets/svg/icons.svg#history"},
-    {id: 4, title: "Promos", icon: "../../../assets/svg/icons.svg#promos"},
-    {id: 5, title: "Settings", icon: "../../../assets/svg/icons.svg#settings"},
-  ];
-  constructor() { }
+  storeLogo = "https://www.freepnglogos.com/uploads/starbucks-logo-png-transparent-0.png";
+  selected: number;
+
+  constructor(private messageService: MessagePassingService) { }
 
   ngOnInit(): void {
   }
 
+  logoutUser() { 
+    this.messageService.passMessageToConfirmBox("Please Confrim", "Are you sure you want to logout?", "logout");
+  }
 }

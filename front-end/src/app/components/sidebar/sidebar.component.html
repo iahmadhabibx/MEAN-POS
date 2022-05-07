@@ -1,23 +1,67 @@
-<header>
-    <section class="logo"></section>
-</header>
-<main>
-    <nav class="menu-icons">
-        <nav *ngFor="let menu of menuItems">
-            <div class="menu i-flex align-center justify-center flex-column w-100 cursor-pointer">
+<section class="sidebar-section h-100 flex flex-column align-center space-between">
+    <header>
+        <section class="logo">
+            <img src="{{storeLogo}}" alt="">
+        </section>
+    </header>
+    <main>
+        <nav class="menu-icons i-flex flex-column">
+           <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=0" [ngClass]="{'selected':selected==0}">
                 <svg>
-                    <use xlink:href="{menu.icon}"></use>
+                    <use xlink:href="../../../assets/svg/icons.svg#home"></use>
                 </svg>
-                {{menu.title}}
+                <span>Home</span>
+            </div>
+          
+            <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=1" [ngClass]="{'selected':selected==1}">
+                <svg>
+                    <use xlink:href="../../../assets/svg/icons.svg#dashboard"></use>
+                </svg>
+                <span>Dashboard</span>
+            </div>
+           
+            <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=2" [ngClass]="{'selected':selected==2}">
+                <svg>
+                    <use xlink:href="../../../assets/svg/icons.svg#report"></use>
+                </svg>
+                <span>Reports</span>
+            </div>
+           
+            <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=3" [ngClass]="{'selected':selected==3}">
+                <svg>
+                    <use xlink:href="../../../assets/svg/icons.svg#products"></use>
+                </svg>
+                <span>Products</span>
+            </div>
+           
+            <!-- <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=1" [ngClass]="{'selected':selected==1}">
+                <svg>
+                    <use xlink:href="../../../assets/svg/icons.svg#menu"></use>
+                </svg>
+                <span>Menu</span>
+            </div> -->
+           
+            <div class="menu i-flex font-varela align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=4" [ngClass]="{'selected':selected==4}">
+                <svg>
+                    <use xlink:href="../../../assets/svg/icons.svg#history"></use>
+                </svg>
+                <span>History</span>
+            </div>
+
+            <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="selected=5" [ngClass]="{'selected':selected==5}">
+                <svg>
+                    <use xlink:href="../../../assets/svg/icons.svg#settings"></use>
+                </svg>
+                <span>Settings</span>
             </div>
         </nav>
-    </nav>
-</main>
-<footer>
-    <div class="menu i-flex align-center justify-center flex-column w-100 cursor-pointer">
-        <svg>
-            <use xlink:href="../../../assets/svg/icons.svg#logout"></use>
-        </svg>
-        Logout
-    </div>
-</footer>
+    </main>
+    <footer>
+        <div class="menu font-varela i-flex align-center justify-center flex-column w-100 cursor-pointer" (click)="logoutUser()">
+            <svg>
+                <use xlink:href="../../../assets/svg/icons.svg#logout"></use>
+            </svg>
+            <span>Logout</span>
+        </div>
+    </footer>
+</section>

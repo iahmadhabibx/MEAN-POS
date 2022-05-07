@@ -3,6 +3,8 @@
   --white-hue: #ffffff00;
   --base-color-white: #fff;
   --base-color-white-hover: #e2d7d7;
+  --color-selected: #1B1A17;
+  --shadow: #ccc;
 }
 
 * {
@@ -46,6 +48,9 @@ body {
   height: 100%;
   width: 100%;
 }
+.d-none {
+  display: none;
+}
 
 .text-center {
   text-align: center;
@@ -77,6 +82,9 @@ body {
 .justify-center {
     justify-content: center;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .space-between {
     justify-content: space-between;
 }
@@ -86,7 +94,6 @@ body {
 .space-evenly {
     justify-content: space-evenly;
 }
-
 
 .btn {
     min-width: 100px;

@@ -1,0 +1,14 @@
+<div class="overlay h-100 w-100"></div>
+
+<div class="modal pos-absolute font-varela" *ngIf="messageObject">
+    <header class="modal-header text-center">
+        {{messageObject.title}}
+    </header>
+    <main class="modal-body">
+        {{messageObject.text}}
+    </main>
+    <footer class="modal-footer i-flex flex-row justify-end w-100">
+        <button class="btn btn-no" (click)="onReject()">No</button>
+        <button class="btn btn-yes" (click)="onConfirm()">Yes</button>
+    </footer>
+</div>

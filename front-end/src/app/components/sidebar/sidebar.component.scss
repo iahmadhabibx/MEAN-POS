@@ -1,16 +1,62 @@
-.menu {
-    row-gap: 1em;
-    transition: all 0.1s linear;
-    svg {
-        fill: var(--base-color-white);
-        transition: all 0.1s linear;
-        width: 50px;
-        height: 50px;
-    }
-    &:hover {
-        svg {
-            fill: var(--base-color-white-hover);
+.sidebar-section {
+    header {
+        .logo {
+            img {
+                max-width: 60px;
+                max-height: 60px;
+                @media(max-width: 1100px) {
+                    max-width: 50px;
+                    max-height: 50px;
+                }
+            }
         }
-        color: var(--base-color-white-hover);
+    }
+    padding: 10px 0;
+    .menu {
+        row-gap: 0.5em;
+        transition: all 0.1s linear;
+        padding: 4px 0;
+        border-radius: 6px;
+        font-size: 0.9em;
+        letter-spacing: 1px;
+
+        @media(max-width: 1100px) {
+            padding: 10px;
+        }
+        
+        span {
+            padding: 0 5px;
+
+            @media(max-width: 1100px) {
+              display: none;
+            }
+        }
+        svg {
+            fill: var(--base-color-white);
+            transition: all 0.1s linear;
+            width: 30px;
+            height: 30px;
+        }
+        &:hover {
+            svg {
+                fill: var(--base-color-white-hover);
+            }
+            color: var(--base-color-white-hover);
+        }
+    }
+
+    .selected {
+        background-color: var(--base-color-white);
+        color: var(--color-selected);
+        &:hover {
+            color: var(--color-selected) !important;
+        }
+        svg {
+            fill: var(--color-selected) !important;
+        }
+    }
+    
+    .menu-icons {
+        row-gap: 1.5em;
     }
 }
