@@ -1,0 +1,11 @@
+.search {
+    border-radius: 15px;
+    border: none;
+    padding: 6px 0 6px 4px;
+    outline: none;
+    transition: all 0.3s linear;
+
+    &:focus {
+        box-shadow: 1px 1px 3px 0px #ccc;
+    }
+}

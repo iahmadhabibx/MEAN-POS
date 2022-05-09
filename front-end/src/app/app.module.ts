@@ -5,13 +5,14 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { AuthWrapperComponent } from './authentication/auth-wrapper/auth-wrapper.component';
-import { SignupComponent } from './authentication/signup/signup.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { AuthWrapperComponent } from './components/authentication/auth-wrapper/auth-wrapper.component';
+import { SignupComponent } from './components/authentication/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ConfirmComponent } from './modals/confirm/confirm.component';
+import { ConfirmComponent } from './components/modals/confirm/confirm.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 const routes: Routes = [
   { 
@@ -19,11 +20,11 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        loadChildren:() => import('./authentication/authentication.module').then(m => m.AuthenticationModule)
+        loadChildren:() => import('./components/authentication/authentication.module').then(m => m.AuthenticationModule)
       },
       {
         path: "dashboard",
-        loadChildren:() => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren:() => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
   },
@@ -36,7 +37,8 @@ const routes: Routes = [
     LoginComponent,
     AuthWrapperComponent,
     SidebarComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,

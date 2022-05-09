@@ -4,17 +4,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AuthenticatedGuard } from 'src/app/security/authenticated.guard';
-import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart.component';
+import { VerticalBarChartComponent } from '../../components/charts/vertical-bar-chart/vertical-bar-chart.component';
 import { DashboardComponent } from './dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     canActivateChild: [AuthenticatedGuard],
+    component: DashboardComponent,
     children: [
       {
         path: '',
-        component: DashboardComponent
+        component: HomeComponent
       }
     ]
   }
@@ -23,7 +25,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     DashboardComponent,
-    VerticalBarChartComponent
+    VerticalBarChartComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forChild(routes),
