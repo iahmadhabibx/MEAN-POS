@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SHARED_DATA } from 'src/app/shared/sharedData';
 
 @Component({
   selector: 'app-auth-wrapper',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthWrapperComponent implements OnInit {
   currentGrid = 0;
-
+  isLogin = SHARED_DATA.authentication.isLogin;
   constructor() { }
 
   ngOnInit(): void {

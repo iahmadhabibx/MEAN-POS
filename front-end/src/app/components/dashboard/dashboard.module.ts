@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { ConfirmComponent } from 'src/app/modals/confirm/confirm.component';
 import { AuthenticatedGuard } from 'src/app/security/authenticated.guard';
-import { SidebarComponent } from '../sidebar/sidebar.component';
+import { VerticalBarChartComponent } from '../charts/vertical-bar-chart/vertical-bar-chart.component';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -24,8 +23,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     DashboardComponent,
-    SidebarComponent,
-    ConfirmComponent
+    VerticalBarChartComponent
   ],
   imports: [
     RouterModule.forChild(routes),

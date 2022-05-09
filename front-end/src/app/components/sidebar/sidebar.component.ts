@@ -8,7 +8,7 @@ import { MessagePassingService } from 'src/app/services/messagePassing.service';
 })
 export class SidebarComponent implements OnInit {
   storeLogo = "https://www.freepnglogos.com/uploads/starbucks-logo-png-transparent-0.png";
-  selected: number;
+  selected: number = 0;
 
   constructor(private messageService: MessagePassingService) { }
 

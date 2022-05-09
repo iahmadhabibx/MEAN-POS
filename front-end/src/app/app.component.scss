@@ -1,0 +1,15 @@
+.sidebar {
+    width: 100px;
+    background-color: var(--base-color);
+    color: var(--base-color-white);
+    @media(max-width: 1100px) {
+        width: 70px;
+    }
+}
+
+.confirm-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.3s linear;
+}

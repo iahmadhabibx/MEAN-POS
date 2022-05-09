@@ -10,6 +10,8 @@ import { AuthWrapperComponent } from './authentication/auth-wrapper/auth-wrapper
 import { SignupComponent } from './authentication/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ConfirmComponent } from './modals/confirm/confirm.component';
 
 const routes: Routes = [
   { 
@@ -33,6 +35,8 @@ const routes: Routes = [
     SignupComponent,
     LoginComponent,
     AuthWrapperComponent,
+    SidebarComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
