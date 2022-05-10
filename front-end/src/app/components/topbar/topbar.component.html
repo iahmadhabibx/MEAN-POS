@@ -1,7 +1,22 @@
-<main class="topbar flex flex-row align-center w-100 h-100 space-between">
-    <section class="section section-1"></section>
-    <section class="section section-2">
-        <input type="text" class="search">
+<main class="topbar flex flex-row align-center w-100 h-100 space-between font-varela" >
+    <section class="section section-1 h-100"></section>
+    <section class="section section-2 pos-relative">
+        <input type="text" class="search h-100" placeholder="Search...">
+        <svg class="search-icon pos-absolute">
+            <use xlink:href="../../../assets/svg/icons.svg#search"></use>
+        </svg>
     </section>
-    <section class="section section-3"></section>
+    <section class="section section-3 h-100 i-flex flex-row justify-center align-center">
+        <div class="notification">
+            <svg>
+                <use xlink:href="../../../assets/svg/icons.svg#notification"></use>
+            </svg>
+        </div>
+        <div class="profile">
+            <img *ngIf="connectedUser?.profileImage; else sample_image" src="{{connectedUser?.profileImage}}" alt="{{connectedUser?.name}}">
+            <ng-template #sample_image>
+                <img src="../../../assets/images/dummy-profile.png" alt="{{connectedUser?.name ? connectedUser.name : 'User image'}}">
+            </ng-template>
+        </div>
+    </section>
 </main>

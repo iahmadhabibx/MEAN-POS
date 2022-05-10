@@ -7,6 +7,9 @@ import { Chart, registerables } from 'chart.js';
   styleUrls: ['./vertical-bar-chart.component.scss']
 })
 export class VerticalBarChartComponent implements OnInit {
+  ordersPayload = {
+    ordersPeriod: "Today",
+  };
 
   CountyMedianProperty: any
   states = ['Navada', "New Mexico", "Paris"]
@@ -32,15 +35,15 @@ export class VerticalBarChartComponent implements OnInit {
         align: 'start',
         anchor: 'start'
       },
-      // borderDash: [10, 5],                            // dotted or dash line ,  change inside values to get more precise dotted or dashed
-      lineTension: 0.4,                               // if 0 , straight line , if 0.4 curved line
-      borderColor: "red",
-      backgroundColor: 'rgba(255, 99, 132,0.4)',
-      fill: true,                                 // background color fill kar day gay line sy neechay sara
+      // borderDash: [10, 1],                            // dotted or dash line ,  change inside values to get more precise dotted or dashed
+      lineTension: 0,                               // if 0 , straight line , if 0.4 curved line
+      borderColor: "#273c75",
+      backgroundColor: 'rgba(0, 0, 0 ,0.4)',
+      fill: false,                                 // background color fill kar day gay line sy neechay sara
       spanGaps: true,                              // dont the line on graph if null or no values available 
-      pointStyle: 'rect',                             // star , triangle , rect , circle (default) , cross , crossRot , dash , line , rectRounded , rectRot
+      pointStyle: 'circle',                             // star , triangle , rect , circle (default) , cross , crossRot , dash , line , rectRounded , rectRot
       pointText: [3, 7, 1, 8, 4, 6, 2],
-      pointRadius: 10,
+      pointRadius: 6,
       pointHoverRadius: 15
 
     });
@@ -65,7 +68,7 @@ export class VerticalBarChartComponent implements OnInit {
             title: {
               //  see more configuration of title at  ------->          https://www.chartjs.org/docs/latest/configuration/title.html 
               display: true,
-              text: 'Custom Chart Title',
+              text: 'Orders',
               align: 'center',                                 // value --->  start , center , end
               color: "teal",
               position: "top",                               // value --> top , bottom , right ,left
@@ -74,12 +77,12 @@ export class VerticalBarChartComponent implements OnInit {
             // subtitle right below title at tof the chart
             subtitle: {
               display: true,
-              text: 'Custom Chart Subtitle',
+              text: this.ordersPayload.ordersPeriod,
               align: 'center',
               // fullSize: false
               position: "top",                               // value --> top , bottom , right ,left
               font: { weight: 'bold', size: 20, family: "serif" },
-              padding: 10                       // implemented at onlu top and bottom
+              padding: 0                    // implemented at onlu top and bottom
             },
             // tooltips configuration
             tooltip: {
@@ -98,7 +101,7 @@ export class VerticalBarChartComponent implements OnInit {
               bodySpacing: 2,
               bodyColor: "White",
               //footer
-              footerColor: "blue",
+              footerColor: "#273c75",
               footerAlign: "left",                 // values ---> left, center , right
               footerSpacing: 12,
               footerMarginTop: 20,
@@ -183,7 +186,7 @@ export class VerticalBarChartComponent implements OnInit {
               title: {
                 display: true,
                 text: 'Years',
-                color: "blue",
+                color: "#273c75",
                 font: {
                   family: "serif",
                   style: "normal",
@@ -195,7 +198,7 @@ export class VerticalBarChartComponent implements OnInit {
               // x-axis main jo values ha Years ki 2012,2013 etc us ki sari styling
               ticks: {
                 //  see more ticks confihuration at -----> "https://www.chartjs.org/docs/latest/axes/styling.html#major-tick-configuration"
-                color: "blue",
+                color: "#273c75",
                 padding: 20                        // x-axis labels values ki padding
                 // callback: function (value , index, values) {
                 //   return `${self.years}Y`;
@@ -209,7 +212,7 @@ export class VerticalBarChartComponent implements OnInit {
                 drawTicks: false,
               },
               title: {
-                color: "blue",
+                color: "#273c75",
                 display: true,
                 text: 'Y-axis Values',
                 font: {
@@ -226,7 +229,7 @@ export class VerticalBarChartComponent implements OnInit {
                   return `${value}%`;
                 },
 
-                color: "blue",
+                color: "#273c75",
                 padding: 20
               },
             },
