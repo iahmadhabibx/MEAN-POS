@@ -7,6 +7,7 @@
 }
 
 .modal {
+    overflow: hidden;
     min-width: 250px;
     height: 150px;
     background-color: var(--base-color-white);
@@ -27,6 +28,9 @@
         background-color: #478e4c;
         color: #fff;
     }
+    .modal-body {
+        color: var(--color-selected);
+    }
     .modal-footer {
         column-gap: 10px;
         position: fixed;
@@ -34,7 +38,8 @@
 
         .btn {
             min-width: 60px;
-            padding: 7px 26px;
+            padding: 6px 22px;
+            font-size: 1em;
             &:hover {
                 filter: brightness(0.9);
             }

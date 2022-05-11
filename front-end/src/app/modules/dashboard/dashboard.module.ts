@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { PieChartComponent } from 'src/app/components/charts/pie-chart/pie-chart.component';
 import { AuthenticatedGuard } from 'src/app/security/authenticated.guard';
 import { VerticalBarChartComponent } from '../../components/charts/vertical-bar-chart/vertical-bar-chart.component';
 import { DashboardComponent } from './dashboard.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   declarations: [
     DashboardComponent,
     VerticalBarChartComponent,
-    HomeComponent
+    HomeComponent,
+    PieChartComponent
   ],
   imports: [
     RouterModule.forChild(routes),

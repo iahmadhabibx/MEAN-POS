@@ -38,7 +38,7 @@ const routes: Routes = [
     AuthWrapperComponent,
     SidebarComponent,
     ConfirmComponent,
-    TopbarComponent
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,

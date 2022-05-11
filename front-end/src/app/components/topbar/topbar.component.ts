@@ -7,7 +7,7 @@ import { SHARED_DATA } from 'src/app/shared/sharedData';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
-  connectedUser:any = SHARED_DATA.USER.connectedUser;
+  connectedUser:any = {};
 
   constructor() { }
 

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
-
 @Component({
-  selector: 'app-vertical-bar-chart',
-  templateUrl: './vertical-bar-chart.component.html',
-  styleUrls: ['./vertical-bar-chart.component.scss']
+  selector: 'app-pie-chart',
+  templateUrl: './pie-chart.component.html',
+  styleUrls: ['./pie-chart.component.scss']
 })
-export class VerticalBarChartComponent implements OnInit {
+export class PieChartComponent implements OnInit {
   ordersPayload = {
     ordersPeriod: "Today",
   };
@@ -38,8 +37,12 @@ export class VerticalBarChartComponent implements OnInit {
       // borderDash: [10, 1],                            // dotted or dash line ,  change inside values to get more precise dotted or dashed
       lineTension: 0,                               // if 0 , straight line , if 0.4 curved line
       borderColor: "#273c75",
-      backgroundColor: 'rgba(0, 0, 0 ,0.4)',
-      fill: false,                                 // background color fill kar day gay line sy neechay sara
+      backgroundColor: [
+        '#273c75',
+        '#132a68',
+        '#c41429'
+      ],
+      fill: true,                                 // background color fill kar day gay line sy neechay sara
       spanGaps: true,                              // dont the line on graph if null or no values available 
       pointStyle: 'circle',                             // star , triangle , rect , circle (default) , cross , crossRot , dash , line , rectRounded , rectRot
       pointText: [3, 7, 1, 8, 4, 6, 2],
@@ -51,9 +54,9 @@ export class VerticalBarChartComponent implements OnInit {
     // Loading Graph
     // this.CountyMedianProperty.destroy();
     this.CountyMedianProperty = new Chart(
-      'myChart',
+      'pieChart',
       {
-        type: "line",
+        type: "pie",
         data: {
           labels: this.years,
           datasets: this.dataSetCounty,
@@ -62,6 +65,12 @@ export class VerticalBarChartComponent implements OnInit {
           // click on anywhere on graph 
           onClick: (e) => {
             console.log("on click..", e)
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          onResize: (e) => {
+            console.log(e);
+            
           },
           plugins: {
             // Title at top of the chart
@@ -72,16 +81,16 @@ export class VerticalBarChartComponent implements OnInit {
               align: 'center',                                 // value --->  start , center , end
               color: "teal",
               position: "top",                               // value --> top , bottom , right ,left
-              padding: 20                       // implemented at onlu top and bottom
+              font: { weight: 'bold', size: 20, family: "verdana" },
             },
             // subtitle right below title at tof the chart
             subtitle: {
-              display: true,
+              display: false,
               text: this.ordersPayload.ordersPeriod,
               align: 'center',
               // fullSize: false
               position: "top",                               // value --> top , bottom , right ,left
-              font: { weight: 'bold', size: 20, family: "verdana" },
+              font: { weight: 'bold', size: 20, family: "serif" },
               padding: 0                    // implemented at onlu top and bottom
             },
             // tooltips configuration
@@ -161,7 +170,7 @@ export class VerticalBarChartComponent implements OnInit {
               },
             },
             legend: {
-              display: true,
+              display: false,
               position: "top",    // bottom , right , left , chartArea
               labels: {
                 textAlign: "left",
@@ -174,66 +183,6 @@ export class VerticalBarChartComponent implements OnInit {
             },
 
           },
-          scales: {
-            xAxis: {
-              grid: {
-                //  see more grid confihuration at -----> "https://www.chartjs.org/docs/latest/axes/styling.html"
-                display: true,               //  jo grapgh k peechay lines arai unhe hide show karwanay k liye
-                drawTicks: false,
-                // borderColor: "red",          // x-axis bottom line ka color 
-                // color: "blue"               // x-axis ki values per jo oper tak lines ban rai un ka color
-              },
-              title: {
-                display: true,
-                text: 'Years',
-                color: "#273c75",
-                font: {
-                  family: "verdana",
-                  style: "normal",
-                  size: 20
-                },
-                padding: 1                      // x-axis label title ki padding
-              },
-
-              // x-axis main jo values ha Years ki 2012,2013 etc us ki sari styling
-              ticks: {
-                //  see more ticks confihuration at -----> "https://www.chartjs.org/docs/latest/axes/styling.html#major-tick-configuration"
-                color: "#273c75",
-                padding: 20                        // x-axis labels values ki padding
-                // callback: function (value , index, values) {
-                //   return `${self.years}Y`;
-                // },
-              },
-            },
-            yAxis: {
-              grid: {
-                //  see more grid confihuration at -----> "https://www.chartjs.org/docs/latest/axes/styling.html"
-                display: true,               //  jo grapgh k peechay lines arai unhe hide show karwanay k liye
-                drawTicks: false,
-              },
-              title: {
-                color: "#273c75",
-                display: true,
-                text: 'Y-axis Values',
-                font: {
-                  size: 20,
-                  family: "verdana",
-                  style: "normal"
-                },
-                padding: 1, 
-              },
-
-              ticks: {
-                //  see more ticks confihuration at -----> "https://www.chartjs.org/docs/latest/axes/styling.html#major-tick-configuration"
-                callback: function (value, index, values) {
-                  return `${value}%`;
-                },
-
-                color: "#273c75",
-                padding: 20
-              },
-            },
-          }
 
         }
       }
